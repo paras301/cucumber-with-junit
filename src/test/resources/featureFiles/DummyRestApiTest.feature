@@ -6,4 +6,4 @@ Feature: Dummy Rest Api Functionality Scenarios
 
     Examples:
       | url                                               | responseMessage                        |
-      | http://dummy.restapiexample.com/api/v1/employee/1 | Successfully! Record has been fetched. |
+      | /api/v1/employee/1 | Successfully! Record has been fetched. |

@@ -16,6 +16,7 @@ public class DummyRestApiTest {
 
 	private Scenario scenario;
 	private Response response;
+	private final String BASE_URL = "http://dummy.restapiexample.com";
 
 	@Before
 	public void before(Scenario scenarioVal) {
@@ -24,17 +25,22 @@ public class DummyRestApiTest {
 
 	@Given("^Get Call to \"(.*)\"$")
 	public void get_call_to_url(String url) throws Exception {
-		RequestSpecification req = RestAssured.with();
-		response = req.given().get(new URI(url)).then().extract().response();
-		scenario.log("Response Recieved == " + response.asPrettyString());
+		RestAssured.baseURI = BASE_URL;
+		RequestSpecification req = RestAssured.given();
+
+		response = req.when().get(new URI(url));
 	}
 
 	@Then("^Response \"(.*)\" is validated$")
 	public void response_is_validated(String responseMessage) {
+		response.then().statusCode(200);
+		response = response.then().extract().response();
+		scenario.log("Response Recieved == " + response.asPrettyString());
+
 		JSONObject resJson = new JSONObject(response.asString());
 		String message = resJson.getString("message");
 		Assert.assertEquals(responseMessage, message);
-	}
 
+	}
 
 }
