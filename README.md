@@ -4,3 +4,5 @@ My previous post on Cucumber integration with TestNG can be found at: https://pa
 This repo demonstrates the similar suite of using Cucumber with Junit framework
 This time instead of doing UI testing using selenium webdriver, I'll be demonstrating
 REST API testing using RestAssured
+
+You can view the post at: https://paras301.medium.com/cucumber-bdd-testing-using-junit-framework-for-rest-apis-using-restassured-2a57f41fbaa1

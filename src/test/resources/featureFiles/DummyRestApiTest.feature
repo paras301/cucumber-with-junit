@@ -5,5 +5,5 @@ Feature: Dummy Rest Api Functionality Scenarios
     Then Response "<responseMessage>" is validated
 
     Examples:
-      | url                                               | responseMessage                        |
+      | url                | responseMessage                        |
       | /api/v1/employee/1 | Successfully! Record has been fetched. |
